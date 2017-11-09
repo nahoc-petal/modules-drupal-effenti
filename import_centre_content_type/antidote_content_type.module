@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Antidote content type feature.
+ */
+
+include_once 'antidote_content_type.features.inc';
