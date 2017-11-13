@@ -1,9 +1,9 @@
 diff --git a/src/Plugin/resource/Antidotes__1_0.php b/src/Plugin/resource/Antidotes__1_0.php
 new file mode 100755
-index 0000000..135b180
+index 0000000..64de1ab
 --- /dev/null
 +++ b/src/Plugin/resource/Antidotes__1_0.php
-@@ -0,0 +1,102 @@
+@@ -0,0 +1,117 @@
 +<?php
 +
 +/**
@@ -100,6 +100,21 @@ index 0000000..135b180
 +    // Stockage recommandé
 +    $public_fields['stockage_recommande'] = array(
 +      'property' => 'field_stockage_recommande',
++    );
++
++    // Calculatrice
++    $public_fields['calculatrice'] = array(
++      'property' => 'field_calculatrice',
++    );
++
++    // Dose maximale
++    $public_fields['dose_maximale'] = array(
++      'property' => 'field_dose_maximale',
++    );
++
++    // Dose par poids
++    $public_fields['dose_par_poids'] = array(
++      'property' => 'field_dose_par_poids',
 +    );
 +
 +    return $public_fields;
