@@ -5,3 +5,17 @@
  */
 
 include_once 'antidote_content_type.features.inc';
+
+/**
+ * Implements hook_theme().
+ */
+function antidote_content_type_theme() {
+  $items = array();
+
+  $items['node__antidote'] = array(
+    'render element' => 'elements',
+    'template' => 'node--antidote',
+  );
+
+  return $items;
+}
