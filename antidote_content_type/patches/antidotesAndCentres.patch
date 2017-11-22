@@ -107,14 +107,24 @@ index 0000000..64de1ab
 +      'property' => 'field_calculatrice',
 +    );
 +
-+    // Dose maximale
++    // Dose maximale adulte
 +    $public_fields['dose_maximale'] = array(
 +      'property' => 'field_dose_maximale',
 +    );
 +
-+    // Dose par poids
++    // Dose par poids adulte
 +    $public_fields['dose_par_poids'] = array(
 +      'property' => 'field_dose_par_poids',
++    );
++
++    // Dose maximale enfant
++    $public_fields['dose_maximale_enfant'] = array(
++      'property' => 'field_dose_maximale_enfant',
++    );
++
++    // Dose par poids enfant
++    $public_fields['dose_par_poids_enfant'] = array(
++      'property' => 'field_dose_par_poids_enfant',
 +    );
 +
 +    return $public_fields;
