@@ -7,4 +7,4 @@ projects[registry_autoload] = 1.3
 
 projects[restful][type] = module
 projects[restful][version] = 2.16
-projects[restful][patch][] = antidote_content_type/patches/antidotesAndCentres.patch
+projects[restful][patch][] = antidote_content_type/patches/antidotesAndCentresAndSocial.patch
