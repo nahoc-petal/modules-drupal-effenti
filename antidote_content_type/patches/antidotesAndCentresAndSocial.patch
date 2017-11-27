@@ -1,204 +1,272 @@
-diff --git a/src/Plugin/resource/AuthenticatedResource.php b/src/Plugin/resource/AuthenticatedResource.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/AuthenticatedResourceInterface.php b/src/Plugin/resource/AuthenticatedResourceInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/CrudInterface.php b/src/Plugin/resource/CrudInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/CsrfToken.php b/src/Plugin/resource/CsrfToken.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/ArrayWrapper.php b/src/Plugin/resource/DataInterpreter/ArrayWrapper.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/ArrayWrapperInterface.php b/src/Plugin/resource/DataInterpreter/ArrayWrapperInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/DataInterpreterArray.php b/src/Plugin/resource/DataInterpreter/DataInterpreterArray.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/DataInterpreterBase.php b/src/Plugin/resource/DataInterpreter/DataInterpreterBase.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/DataInterpreterEMW.php b/src/Plugin/resource/DataInterpreter/DataInterpreterEMW.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/DataInterpreterInterface.php b/src/Plugin/resource/DataInterpreter/DataInterpreterInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/DataInterpreterPlug.php b/src/Plugin/resource/DataInterpreter/DataInterpreterPlug.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/PluginWrapper.php b/src/Plugin/resource/DataInterpreter/PluginWrapper.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataInterpreter/PluginWrapperInterface.php b/src/Plugin/resource/DataInterpreter/PluginWrapperInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/CacheDecoratedDataProvider.php b/src/Plugin/resource/DataProvider/CacheDecoratedDataProvider.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/CacheDecoratedDataProviderInterface.php b/src/Plugin/resource/DataProvider/CacheDecoratedDataProviderInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProvider.php b/src/Plugin/resource/DataProvider/DataProvider.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderDbQuery.php b/src/Plugin/resource/DataProvider/DataProviderDbQuery.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderDbQueryInterface.php b/src/Plugin/resource/DataProvider/DataProviderDbQueryInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderDecorator.php b/src/Plugin/resource/DataProvider/DataProviderDecorator.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderEntity.php b/src/Plugin/resource/DataProvider/DataProviderEntity.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderEntityDecorator.php b/src/Plugin/resource/DataProvider/DataProviderEntityDecorator.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderEntityInterface.php b/src/Plugin/resource/DataProvider/DataProviderEntityInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderFile.php b/src/Plugin/resource/DataProvider/DataProviderFile.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderInterface.php b/src/Plugin/resource/DataProvider/DataProviderInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderNode.php b/src/Plugin/resource/DataProvider/DataProviderNode.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderNull.php b/src/Plugin/resource/DataProvider/DataProviderNull.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderPlug.php b/src/Plugin/resource/DataProvider/DataProviderPlug.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderResource.php b/src/Plugin/resource/DataProvider/DataProviderResource.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderResourceInterface.php b/src/Plugin/resource/DataProvider/DataProviderResourceInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/DataProvider/DataProviderTaxonomyTerm.php b/src/Plugin/resource/DataProvider/DataProviderTaxonomyTerm.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Decorators/CacheDecoratedResource.php b/src/Plugin/resource/Decorators/CacheDecoratedResource.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Decorators/CacheDecoratedResourceInterface.php b/src/Plugin/resource/Decorators/CacheDecoratedResourceInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Decorators/RateLimitDecoratedResource.php b/src/Plugin/resource/Decorators/RateLimitDecoratedResource.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Decorators/ResourceDecoratorBase.php b/src/Plugin/resource/Decorators/ResourceDecoratorBase.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Decorators/ResourceDecoratorInterface.php b/src/Plugin/resource/Decorators/ResourceDecoratorInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Discovery.php b/src/Plugin/resource/Discovery.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoBase.php b/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoBase.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoEntity.php b/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoEntity.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoEntityInterface.php b/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoEntityInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoInterface.php b/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoNull.php b/src/Plugin/resource/Field/PublicFieldInfo/PublicFieldInfoNull.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceField.php b/src/Plugin/resource/Field/ResourceField.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldBase.php b/src/Plugin/resource/Field/ResourceFieldBase.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldCollection.php b/src/Plugin/resource/Field/ResourceFieldCollection.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldCollectionInterface.php b/src/Plugin/resource/Field/ResourceFieldCollectionInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldDbColumn.php b/src/Plugin/resource/Field/ResourceFieldDbColumn.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldDbColumnInterface.php b/src/Plugin/resource/Field/ResourceFieldDbColumnInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldEntity.php b/src/Plugin/resource/Field/ResourceFieldEntity.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldEntityAlterableInterface.php b/src/Plugin/resource/Field/ResourceFieldEntityAlterableInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldEntityFile.php b/src/Plugin/resource/Field/ResourceFieldEntityFile.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldEntityInterface.php b/src/Plugin/resource/Field/ResourceFieldEntityInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldEntityReference.php b/src/Plugin/resource/Field/ResourceFieldEntityReference.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldEntityReferenceInterface.php b/src/Plugin/resource/Field/ResourceFieldEntityReferenceInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldEntityText.php b/src/Plugin/resource/Field/ResourceFieldEntityText.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldFileEntityReference.php b/src/Plugin/resource/Field/ResourceFieldFileEntityReference.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldInterface.php b/src/Plugin/resource/Field/ResourceFieldInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldKeyValue.php b/src/Plugin/resource/Field/ResourceFieldKeyValue.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldReference.php b/src/Plugin/resource/Field/ResourceFieldReference.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldResource.php b/src/Plugin/resource/Field/ResourceFieldResource.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Field/ResourceFieldResourceInterface.php b/src/Plugin/resource/Field/ResourceFieldResourceInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/FilesUpload__1_0.php b/src/Plugin/resource/FilesUpload__1_0.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/LoginCookie__1_0.php b/src/Plugin/resource/LoginCookie__1_0.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Resource.php b/src/Plugin/resource/Resource.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/ResourceDbQuery.php b/src/Plugin/resource/ResourceDbQuery.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/ResourceEntity.php b/src/Plugin/resource/ResourceEntity.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/ResourceInterface.php b/src/Plugin/resource/ResourceInterface.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/ResourceNode.php b/src/Plugin/resource/ResourceNode.php
-old mode 100644
-new mode 100755
-diff --git a/src/Plugin/resource/Users__1_0.php b/src/Plugin/resource/Users__1_0.php
-old mode 100644
-new mode 100755
+diff --git a/src/Plugin/resource/Antidotes__1_0.php b/src/Plugin/resource/Antidotes__1_0.php
+new file mode 100755
+index 0000000..93a799c
+--- /dev/null
++++ b/src/Plugin/resource/Antidotes__1_0.php
+@@ -0,0 +1,126 @@
++<?php
++
++/**
++ * @file
++ * Contains \Drupal\restful\Plugin\resource\Antidotes__1_0.
++ */
++
++namespace Drupal\restful\Plugin\resource;
++
++use Drupal\restful\Http\RequestInterface;
++use Drupal\restful\Plugin\resource\ResourceEntity;
++use Drupal\restful\Plugin\resource\ResourceInterface;
++use Drupal\restful\Plugin\resource\ResourceNode;
++
++/**
++ * Class Articles
++ * @package Drupal\restful\Plugin\resource
++ *
++ * @Resource(
++ *   name = "antidotes:1.0",
++ *   resource = "antidotes",
++ *   label = "Antidotes",
++ *   description = "Export the Antidote entity with cookie authentication.",
++ *   authenticationTypes = TRUE,
++ *   authenticationOptional = TRUE,
++ *   dataProvider = {
++ *     "entityType": "node",
++ *     "bundles": {
++ *       "antidote"
++ *     },
++ *   },
++ *   majorVersion = 1,
++ *   minorVersion = 0
++ * )
++ */
++class Antidotes__1_0 extends ResourceEntity implements ResourceInterface {
++  /**
++   * {@inheritdoc}
++   */
++  protected function publicFields() {
++    $public_fields = parent::publicFields();
++
++    // Language
++    $public_fields['language'] = array(
++      'property' => 'language',
++    );
++
++    // Indications
++    $public_fields['indications'] = array(
++      'property' => 'field_indications',
++    );
++
++    // Posologie
++    $public_fields['posologie'] = array(
++      'property' => 'field_posologie',
++    );
++
++    // Points clés
++    $public_fields['points_cles'] = array(
++      'property' => 'field_points_cles',
++    );
++
++    // Synonymes et autres appellations 
++    $public_fields['synonymes_et_autres_appell'] = array(
++      'property' => 'field_synonymes_et_autres_appell',
++    );
++
++    // Effets indésirables
++    $public_fields['effets_indesirables'] = array(
++      'property' => 'field_effets_indesirables',
++    );
++
++    // Monitoring
++    $public_fields['monitoring'] = array(
++      'property' => 'field_monitoring',
++    );
++
++    // Fin du traitement
++    $public_fields['fin_du_traitement'] = array(
++      'property' => 'field_fin_du_traitement',
++    );
++
++    // Particularités reliées à l’administration
++    $public_fields['particularites_reliees'] = array(
++      'property' => 'field_particularites_reliees',
++    );
++
++    // Produits disponibles
++    $public_fields['produits_disponibles'] = array(
++      'property' => 'field_produits_disponibles',
++    );
++
++    // Stockage recommandé
++    $public_fields['stockage_recommande'] = array(
++      'property' => 'field_stockage_recommande',
++    );
++
++    // Calculatrice
++    $public_fields['calculatrice'] = array(
++      'property' => 'field_calculatrice',
++    );
++
++    // Dose maximale
++    $public_fields['dose_maximale'] = array(
++      'property' => 'field_dose_maximale',
++    );
++
++    // Dose par poids
++    $public_fields['dose_par_poids'] = array(
++      'property' => 'field_dose_par_poids',
++    );
++
++    // Dose maximale enfant
++    $public_fields['dose_maximale_enfant'] = array(
++      'property' => 'field_dose_maximale_enfant',
++    );
++
++    // Dose par poids enfant
++    $public_fields['dose_par_poids_enfant'] = array(
++      'property' => 'field_dose_par_poids_enfant',
++    );
++
++    return $public_fields;
++  }
++
++}
+diff --git a/src/Plugin/resource/Centres__1_0.php b/src/Plugin/resource/Centres__1_0.php
+new file mode 100755
+index 0000000..3e798a5
+--- /dev/null
++++ b/src/Plugin/resource/Centres__1_0.php
+@@ -0,0 +1,67 @@
++<?php
++
++/**
++ * @file
++ * Contains \Drupal\restful\Plugin\resource\Centres__1_0.
++ */
++
++namespace Drupal\restful\Plugin\resource;
++
++use Drupal\restful\Http\RequestInterface;
++use Drupal\restful\Plugin\resource\ResourceEntity;
++use Drupal\restful\Plugin\resource\ResourceInterface;
++use Drupal\restful\Plugin\resource\ResourceNode;
++
++/**
++ * Class Articles
++ * @package Drupal\restful\Plugin\resource
++ *
++ * @Resource(
++ *   name = "centres:1.0",
++ *   resource = "centres",
++ *   label = "Centres",
++ *   description = "Export the Centre entity with cookie authentication.",
++ *   authenticationTypes = TRUE,
++ *   authenticationOptional = TRUE,
++ *   dataProvider = {
++ *     "entityType": "node",
++ *     "bundles": {
++ *       "centre_antipoison"
++ *     },
++ *   },
++ *   majorVersion = 1,
++ *   minorVersion = 0
++ * )
++ */
++class Centres__1_0 extends ResourceEntity implements ResourceInterface {
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function publicFields() {
++    $public_fields = parent::publicFields();
++
++    // Téléphone
++    $public_fields['telephone'] = array(
++      'property' => 'field_telephone',
++    );
++
++    // Site web
++    $public_fields['site_web'] = array(
++      'property' => 'field_site_web',
++    );
++
++    // Image URL
++    $public_fields['image_url'] = array(
++      'property' => 'field_image_url',
++    );
++
++    // Ordre index
++    $public_fields['ordre_index'] = array(
++      'property' => 'field_ordre_index',
++    );
++
++    return $public_fields;
++  }
++
++}
+diff --git a/src/Plugin/resource/Social__1_0.php b/src/Plugin/resource/Social__1_0.php
+new file mode 100755
+index 0000000..f0c6c68
+--- /dev/null
++++ b/src/Plugin/resource/Social__1_0.php
+@@ -0,0 +1,61 @@
++<?php
++
++/**
++ * @file
++ * Contains \Drupal\restful\Plugin\resource\Social__1_0.
++ */
++
++namespace Drupal\restful\Plugin\resource;
++
++use Drupal\restful\Http\RequestInterface;
++use Drupal\restful\Plugin\resource\ResourceEntity;
++use Drupal\restful\Plugin\resource\ResourceInterface;
++use Drupal\restful\Plugin\resource\ResourceNode;
++
++/**
++ * Class Articles
++ * @package Drupal\restful\Plugin\resource
++ *
++ * @Resource(
++ *   name = "social:1.0",
++ *   resource = "social",
++ *   label = "Social",
++ *   description = "Export the Social entity with cookie authentication.",
++ *   authenticationTypes = TRUE,
++ *   authenticationOptional = TRUE,
++ *   dataProvider = {
++ *     "entityType": "node",
++ *     "bundles": {
++ *       "social"
++ *     },
++ *   },
++ *   majorVersion = 1,
++ *   minorVersion = 0
++ * )
++ */
++class Social__1_0 extends ResourceEntity implements ResourceInterface {
++  /**
++   * {@inheritdoc}
++   */
++  protected function publicFields() {
++    $public_fields = parent::publicFields();
++
++    // Facebook
++    $public_fields['page_facebook'] = array(
++      'property' => 'field_page_facebook',
++    );
++
++    // Twitter
++    $public_fields['page_twitter'] = array(
++      'property' => 'field_page_twitter',
++    );
++
++    // Courriel
++    $public_fields['page_courriel'] = array(
++      'property' => 'field_page_courriel',
++    );
++
++    return $public_fields;
++  }
++
++}
