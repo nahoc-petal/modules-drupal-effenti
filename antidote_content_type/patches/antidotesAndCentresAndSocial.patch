@@ -203,6 +203,19 @@ index 0000000..3e798a5
 +  }
 +
 +}
+diff --git a/src/Plugin/resource/DataProvider/DataProvider.php b/src/Plugin/resource/DataProvider/DataProvider.php
+index 1d2a8ac..e075cad 100644
+--- a/src/Plugin/resource/DataProvider/DataProvider.php
++++ b/src/Plugin/resource/DataProvider/DataProvider.php
+@@ -39,7 +39,7 @@ abstract class DataProvider implements DataProviderInterface {
+    *
+    * @var int
+    */
+-  protected $range = 50;
++  protected $range = 500;
+ 
+   /**
+    * The account authenticated from the request for entity access checks.
 diff --git a/src/Plugin/resource/Social__1_0.php b/src/Plugin/resource/Social__1_0.php
 new file mode 100755
 index 0000000..f0c6c68
