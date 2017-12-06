@@ -1,0 +1,33 @@
+From b899cd3b2769db2cdc9e9ed4eac3b4d3c86dc3fa Mon Sep 17 00:00:00 2001
+From: "aeadf831a927f674ac8598ca7a42a1ed6885bfcb@localhost.localdomain"
+ <aeadf831a927f674ac8598ca7a42a1ed6885bfcb@localhost.localdomain>
+Date: Thu, 30 Nov 2017 19:21:56 +0000
+Subject: [PATCH] Register new node templates with hook_theme()
+
+---
+ antidote_content_type/antidote_content_type.module | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/antidote_content_type/antidote_content_type.module b/antidote_content_type/antidote_content_type.module
+index 97da230..91ceddd 100644
+--- a/antidote_content_type/antidote_content_type.module
++++ b/antidote_content_type/antidote_content_type.module
+@@ -17,5 +17,15 @@ function antidote_content_type_theme() {
+     'template' => 'node--antidote',
+   );
+ 
++  $items['node__centre_antipoison'] = array(
++    'render element' => 'elements',
++    'template' => 'node--centre_antipoison',
++  );
++
++  $items['node__social'] = array(
++    'render element' => 'elements',
++    'template' => 'node--social',
++  );
++
+   return $items;
+ }
+-- 
+2.7.4
+
