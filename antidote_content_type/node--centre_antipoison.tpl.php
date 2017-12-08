@@ -10,8 +10,7 @@ $lang_name = $language->language; ?>
         $('#block-search-form').hide();
         $('#block-menu-block-3').hide();
         $('#block-menu-block-2').hide();
-        $('.link-list').find('tbody').find('tr').find('td').find('img').hide();
-        $('.col-first').hide();
+        $('#Footer').hide();
 
         $('#Header').find('.Container').prepend(
           '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a class="activeLink" href="/centres">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="/liens-et-coordonnees"><?php if($lang_name == '
@@ -26,6 +25,7 @@ $lang_name = $language->language; ?>
       });
     </script>
     <style>
+             #Footer {display:none;}
       img {
         max-width: 100%;
         height: auto;
@@ -43,6 +43,7 @@ $lang_name = $language->language; ?>
 
       #Head #Header .Container .MenuPrincipal ul li a {
         font-size: 16px!important;
+        padding: 16px 11px 15px;
       }
 
       #Head #Header .Container .MenuPrincipal {
@@ -142,7 +143,7 @@ $lang_name = $language->language; ?>
       }
 
       .image-centre {
-        max-width: 50%;
+        max-width: 30%;
         margin-right: 20px;
         max-height: 100%;
         float: left;
@@ -189,7 +190,7 @@ $lang_name = $language->language; ?>
       }
 
       .centre-links {
-        max-width: 50%;
+        max-width: 70%;
         position: relative;
         top: 50%;
         float: left;
@@ -212,6 +213,7 @@ $lang_name = $language->language; ?>
           $nodes = node_load_multiple($nids);
 
           foreach($nodes as $key => $value) {
+            if($value->field_image_url["und"][0]['value'] != null) {
             ?>
         <li class="un-centre">
           <h2>
@@ -219,12 +221,12 @@ $lang_name = $language->language; ?>
           </h2>
           <img class="image-centre" src="<?php print($value->field_image_url["und"][0]['value']); ?>" alt="Centre image" />
           <div class="centre-links">
-            <a class="btn-phone" href="tel:<?php print($value->field_telephone["und"][0]['value']); ?>">Call centre (<?php print($value->field_telephone["und"][0]['value']); ?>)</a>&nbsp;&nbsp;
+            <a class="btn-phone" href="tel:<?php print($value->field_telephone["und"][0]['value']); ?>">Call centre (<?php print '('.substr($value->field_telephone["und"][0]['value'], 0, 3).') '.substr($value->field_telephone["und"][0]['value'], 3, 3).'-'.substr($value->field_telephone["und"][0]['value'],6);?>)</a>&nbsp;&nbsp;
             <a class="btn-website" href="<?php print($value->field_site_web["und"][0]['value']); ?>">Visit website</a>
           </div>
         </li>
         <hr style="clear:both;">
-        <?php } ?>
+        <?php }} ?>
       </ul>
     </div>
     <?php } ?>
@@ -244,6 +246,7 @@ $lang_name = $language->language; ?>
           $nodes = node_load_multiple($nids);
 
           foreach($nodes as $key => $value) {
+            if($value->field_image_url["und"][0]['value'] != null) {
             ?>
         <li class="un-centre">
           <h2>
@@ -251,12 +254,12 @@ $lang_name = $language->language; ?>
           </h2>
           <img class="image-centre" src="<?php print($value->field_image_url["und"][0]['value']); ?>" alt="Centre image" />
           <div class="centre-links">
-            <a class="btn-phone" href="tel:<?php print($value->field_telephone["und"][0]['value']); ?>">Appeler le centre (<?php print($value->field_telephone["und"][0]['value']); ?>)</a>&nbsp;&nbsp;
+            <a class="btn-phone" href="tel:<?php print($value->field_telephone["und"][0]['value']); ?>">Appeler le centre (<?php print substr($value->field_telephone["und"][0]['value'], 0, 1).'-'.substr($value->field_telephone["und"][0]['value'], 1, 3).'-'.substr($value->field_telephone["und"][0]['value'], 4, 3).'-'.substr($value->field_telephone["und"][0]['value'],7);?>)</a>&nbsp;&nbsp;
             <a class="btn-website" href="<?php print($value->field_site_web["und"][0]['value']); ?>">Visiter le site Web</a>
           </div>
         </li>
         <hr style="clear:both;">
-        <?php } ?>
+        <?php }} ?>
       </ul>
     </div>
     <?php } ?>

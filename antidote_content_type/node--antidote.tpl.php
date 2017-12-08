@@ -27,8 +27,7 @@ $lang_name = $language->language; ?>
         $('#block-search-form').hide();
         $('#block-menu-block-3').hide();
         $('#block-menu-block-2').hide();
-        $('.link-list').find('tbody').find('tr').find('td').find('img').hide();
-        $('.col-first').hide();
+        $('#Footer').hide();
 
         $('#Header').find('.Container').prepend(
           '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes" class="activeLink">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees"><?php if($lang_name == '
@@ -60,6 +59,7 @@ $lang_name = $language->language; ?>
 
       #Head #Header .Container .MenuPrincipal ul li a {
         font-size: 16px!important;
+        padding: 16px 11px 15px;
       }
 
       #Head #Header .Container .MenuPrincipal {
@@ -88,7 +88,7 @@ $lang_name = $language->language; ?>
       }
 
       #Head #Header .Container {
-        height: 47px!important;
+        height: 49px!important;
       }
 
       .not-front #Footer .footer-bg {
@@ -213,15 +213,18 @@ $lang_name = $language->language; ?>
         border-radius: 4px;
         border: 1px solid #bbb;
       }
+
+      #Footer {display:none;}
     </style>
 
 
     <aside class="asideAntidotes">
       <?php if($lang_name == 'fr') { ?>
       <h3>Liste des antidotes en toxicologie d'urgence</h3>
+      <input class="searchInput" placeholder="Rechercher un antidote" type="text" />
       <?php } else {  ?>
       <h3>List of antidotes in emergency toxicology</h3>
-      <input class="searchInput" placeholder="Rechercher un antidote" type="text" />
+      <input class="searchInput" placeholder="Search antidote" type="text" />
       <?php } ?>
       <ul>
         <?php 
