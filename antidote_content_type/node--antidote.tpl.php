@@ -331,7 +331,7 @@ $lang_name = $language->language; ?>
 
       <?php if($content['field_stockage_recommande'][0] != null) { ?>
       <div class="dropdownToggle">
-        <h2>+ Stockage recommandé</h2>
+        <h2>+ Quantité requise pour traiter un patient de 70kg pendant 24 heures</h2>
         <div class="drowndownContent">
           <?php print render($content['field_stockage_recommande'][0]); ?>
         </div>
@@ -442,7 +442,7 @@ $lang_name = $language->language; ?>
         </div>
       </div>
       <?php } ?>
-      <div><small>Last updated: <?php echo gmdate("d-m-Y", $changedDate); ?></small></div>
+      <div><small>Last updated: <?php echo gmdate("m-d-Y", $changedDate); ?></small></div>
     </div>
     <?php } ?>
   </div>
