@@ -1,9 +1,9 @@
 diff --git a/src/Plugin/resource/Antidotes__1_0.php b/src/Plugin/resource/Antidotes__1_0.php
 new file mode 100755
-index 0000000..93a799c
+index 0000000..fc64905
 --- /dev/null
 +++ b/src/Plugin/resource/Antidotes__1_0.php
-@@ -0,0 +1,126 @@
+@@ -0,0 +1,131 @@
 +<?php
 +
 +/**
@@ -126,6 +126,11 @@ index 0000000..93a799c
 +      'property' => 'field_dose_par_poids_enfant',
 +    );
 +
++    // Références
++    $public_fields['references'] = array(
++      'property' => 'field_references',
++    );
++
 +    return $public_fields;
 +  }
 +
@@ -204,7 +209,9 @@ index 0000000..3e798a5
 +
 +}
 diff --git a/src/Plugin/resource/DataProvider/DataProvider.php b/src/Plugin/resource/DataProvider/DataProvider.php
-index 1d2a8ac..e075cad 100644
+old mode 100644
+new mode 100755
+index 1d2a8ac..e075cad
 --- a/src/Plugin/resource/DataProvider/DataProvider.php
 +++ b/src/Plugin/resource/DataProvider/DataProvider.php
 @@ -39,7 +39,7 @@ abstract class DataProvider implements DataProviderInterface {
