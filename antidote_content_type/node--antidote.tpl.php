@@ -241,7 +241,8 @@ $lang_name = $language->language; ?>
           foreach($nodes as $key => $value) {
             ?>
         <li>
-          <a class="asideLink <?php if ($node = menu_get_object()) { if($node->nid == $value->nid) { echo 'activeLink'; } } ?>" href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>">
+
+          <a class="asideLink <?php if ($node = menu_get_object()) { if($node->nid == $value->nid) { $changedDate = $value->changed; echo 'activeLink'; } } ?>" href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>">
             <?php print $value->title; ?>
           </a>
         </li>
@@ -336,6 +337,15 @@ $lang_name = $language->language; ?>
         </div>
       </div>
       <?php } ?>
+      <?php if($content['field_references'][0] != null) { ?>
+      <div class="dropdownToggle">
+        <h2>+ Références</h2>
+        <div class="drowndownContent">
+          <?php print render($content['field_references'][0]); ?>
+        </div>
+      </div>
+      <?php } ?>
+      <div><small>Dernière mise à jour: <?php echo gmdate("d-m-Y", $changedDate); ?></small></div>
     </div>
     <?php } else { ?>
     <div class="antidoteDetail">
@@ -373,7 +383,7 @@ $lang_name = $language->language; ?>
 
       <?php if($content['field_effets_indesirables'][0] != null) { ?>
       <div class="dropdownToggle">
-        <h2>+ Side effects</h2>
+        <h2>+ Adverse effects</h2>
         <div class="drowndownContent">
           <?php print render($content['field_effets_indesirables'][0]); ?>
         </div>
@@ -400,7 +410,7 @@ $lang_name = $language->language; ?>
 
       <?php if($content['field_particularites_reliees'][0] != null) { ?>
       <div class="dropdownToggle">
-        <h2>+ Related features</h2>
+        <h2>+ Special Notes on Administration</h2>
         <div class="drowndownContent">
           <?php print render($content['field_particularites_reliees'][0]); ?>
         </div>
@@ -418,12 +428,21 @@ $lang_name = $language->language; ?>
 
       <?php if($content['field_stockage_recommande'][0] != null) { ?>
       <div class="dropdownToggle">
-        <h2>+ Recommended storage</h2>
+        <h2>+ Amount required to treat a person weighting 70kg during 24 hours</h2>
         <div class="drowndownContent">
           <?php print render($content['field_stockage_recommande'][0]); ?>
         </div>
       </div>
       <?php } ?>
+      <?php if($content['field_references'][0] != null) { ?>
+      <div class="dropdownToggle">
+        <h2>+ References</h2>
+        <div class="drowndownContent">
+          <?php print render($content['field_references'][0]); ?>
+        </div>
+      </div>
+      <?php } ?>
+      <div><small>Last updated: <?php echo gmdate("d-m-Y", $changedDate); ?></small></div>
     </div>
     <?php } ?>
   </div>
