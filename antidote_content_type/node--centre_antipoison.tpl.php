@@ -1,5 +1,16 @@
-<?php global $language ;
-$lang_name = $language->language; ?>
+<?php 
+
+global $language;
+$lang_name = $language->language; 
+
+if(isset($_GET['lang'])) {
+  if($_GET["lang"] == "en") {
+    $lang_name = "en";
+  } else {
+    $lang_name = "fr";
+  }
+}
+?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix" <?php print $attributes; ?>>
   <div class="content" <?php print $content_attributes; ?>>
@@ -13,15 +24,16 @@ $lang_name = $language->language; ?>
         $('#Footer').hide();
 
         $('#Header').find('.Container').prepend(
-          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a class="activeLink" href="/centres">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="/liens-et-coordonnees"><?php if($lang_name == '
-          fr ') { ?>Liens et coordonnées<?php } else { ?>Links and contact<?php } ?></a></li></ul></div></div></div></div>'
+          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>" class="activeLink">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>"><?php if($lang_name == 'fr') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
         );
 
         $('#Header').after(
-          '<div class="Container"><div class="image-banner"></div></div>'
+          '<div class="Container"><a href="http://capcc.ca/" target="_blank"><div class="image-banner"></div></a></div>'
         );
 
         $('#block-views-partenaires-block').hide();
+
+        $('.bann-gouv a').last().hide();
       });
     </script>
     <style>
@@ -64,11 +76,15 @@ $lang_name = $language->language; ?>
         margin-top: 10px;
         height: 143px;
         max-width: 962px;
-        background-image: url('https://i.imgur.com/DJOch9x.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
+        <?php if($lang_name == 'fr') { ?>
+        background-image: url('https://i.imgur.com/xvipll6.png');
+        <?php } else { ?>
+        background-image: url('https://i.imgur.com/D9Kfzbp.png');
+        <?php } ?>
       }
 
       .not-front #Footer .footer-bg {
@@ -196,9 +212,16 @@ $lang_name = $language->language; ?>
         float: left;
         transform: translateY(-50%);
       }
+
+      .languageSwitcher {
+        position: absolute;
+        top: -44px;
+        right: 0;
+      }
     </style>
 
     <!-- template EN -->
+    <div class="languageSwitcher"><?php if($lang_name == 'fr') { ?><a href="centres?lang=en">English</a><?php } else { ?><a href="centres?lang=fr">Français</a><?php } ?></div>
     <?php if($lang_name == 'en') { ?>
     <div class="centreDetail">
       <ul class="list-centres">

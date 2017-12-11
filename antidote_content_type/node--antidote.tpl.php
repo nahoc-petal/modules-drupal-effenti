@@ -1,5 +1,16 @@
-<?php global $language ;
-$lang_name = $language->language; ?>
+<?php 
+
+global $language;
+$lang_name = $language->language; 
+
+if(isset($_GET['lang'])) {
+  if($_GET["lang"] == "en") {
+    $lang_name = "en";
+  } else {
+    $lang_name = "fr";
+  }
+}
+?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix" <?php print $attributes; ?>>
   <div class="content" <?php print $content_attributes; ?>>
@@ -30,27 +41,34 @@ $lang_name = $language->language; ?>
         $('#Footer').hide();
 
         $('#Header').find('.Container').prepend(
-          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes" class="activeLink">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees"><?php if($lang_name == '
-          fr ') { ?>Liens et coordonnées<?php } else { ?>Links and contact<?php } ?></a></li></ul></div></div></div></div>'
+        '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>" class="activeLink">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>"><?php if($lang_name == 'fr') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
         );
 
         $('#Header').after(
-          '<div class="Container"><div class="image-banner"></div></div>'
+          '<div class="Container"><a href="http://capcc.ca/" target="_blank"><div class="image-banner"></div></a></div>'
         );
 
-        $('.row-1').prepend(
-          '<td class="col-1"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www2.ulaval.ca/accueil.html" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/dpic_circlelogo_2012_small.png" alt="Logo et lien Université Laval"></a></p></div></div></td><td class="col-2"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www2.ulaval.ca/accueil.html" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/manitoba_gif.png" alt="Logo et lien Université Laval"></a></p></div></div></td><td class="col-3"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www2.ulaval.ca/accueil.html" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/padis_gif.png" alt="Logo et lien Université Laval"></a></p></div></div></td>'
+        $('.row-1').html(
+          '<td class="col-1"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www.dpic.org/" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/dpic_circlelogo_2012_small.png"></a></p></div></div></td><td class="col-2"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www.hsc.mb.ca/emergencyPoison.html" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/manitoba_gif.png"></a></p></div></div></td><td class="col-3"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www.albertahealthservices.ca/topics/Page11975.aspx" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/padis_gif.png"></a></p></div></div></td>'
         );
 
         $('.row-1').before(
-          '<tr class="row-1 row-first row-last"><td class="col-1"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www2.ulaval.ca/accueil.html" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/iwk_gif.png" alt="Logo et lien Université Laval"></a></p></div></div></td><td class="col-2"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www2.ulaval.ca/accueil.html" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/ontario_gif.png" alt="Logo et lien Université Laval"></a></p></div></div></td><td class="col-3"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www2.ulaval.ca/accueil.html" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/capq_logo.gif" alt="Logo et lien Université Laval"></a></p></div></div></td></tr><tr><td>&nbsp;</td></tr>'
+          '<tr class="row-1 row-first row-last"><td class="col-1"><div class="views-field views-field-body"><div class="field-content"><p><a href="https://iwkpoisoncentre.ca/" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/iwk_gif.png"></a></p></div></div></td><td class="col-2"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www.ontariopoisoncentre.ca/" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/ontario_gif.png"></a></p></div></div></td><td class="col-3"><div class="views-field views-field-body"><div class="field-content"><p><a href="http://www.ciusss-capitalenationale.gouv.qc.ca/nos-services/en-cas-durgence/centre-antipoison-du-quebec" target="_blank" style="text-decoration: none;"><img src="http://www.ciusss-capitalenationale.gouv.qc.ca/sites/default/files/images/guideantidoreCAPQ/capq_logo.gif"></a></p></div></div></td></tr><tr><td>&nbsp;</td></tr>'
         );
+
+        $('.bann-gouv a').last().hide();
       });
     </script>
     <style>
       img {
         max-width: 100%;
         height: auto;
+      }
+
+      .bann-gouv img:first-child {
+        height: 111px;
+        width: 211px;
+        max-width: 211px;
       }
 
       .MenuPrincipal {
@@ -80,11 +98,15 @@ $lang_name = $language->language; ?>
         margin-top: 10px;
         height: 143px;
         max-width: 962px;
-        background-image: url('https://i.imgur.com/DJOch9x.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
+        <?php if($lang_name == 'fr') { ?>
+        background-image: url('https://i.imgur.com/xvipll6.png');
+        <?php } else { ?>
+        background-image: url('https://i.imgur.com/D9Kfzbp.png');
+        <?php } ?>
       }
 
       #Head #Header .Container {
@@ -215,9 +237,15 @@ $lang_name = $language->language; ?>
       }
 
       #Footer {display:none;}
+
+      .languageSwitcher {
+        position: absolute;
+        top: -44px;
+        right: 0;
+      }
     </style>
 
-
+    <div class="languageSwitcher"><?php if($lang_name == 'fr') { ?><a href="antidotes?lang=en">English</a><?php } else { ?><a href="antidotes?lang=fr">Français</a><?php } ?></div>
     <aside class="asideAntidotes">
       <?php if($lang_name == 'fr') { ?>
       <h3>Liste des antidotes en toxicologie d'urgence</h3>
@@ -331,7 +359,7 @@ $lang_name = $language->language; ?>
 
       <?php if($content['field_stockage_recommande'][0] != null) { ?>
       <div class="dropdownToggle">
-        <h2>+ Quantité requise pour traiter un patient de 70kg pendant 24 heures</h2>
+        <h2>+ Stockage recommandé</h2>
         <div class="drowndownContent">
           <?php print render($content['field_stockage_recommande'][0]); ?>
         </div>
@@ -346,6 +374,8 @@ $lang_name = $language->language; ?>
       </div>
       <?php } ?>
       <div><small>Dernière mise à jour: <?php echo gmdate("d-m-Y", $changedDate); ?></small></div>
+      <br/>
+      <div><small>©CAPQ, CIUSSS de la Capitale-Nationale, 2017. Les données contenues dans ce document peuvent être citées, à condition d’en mentionner la source. Toute utilisation à des fins commerciales ou publicitaires est cependant strictement interdite.</small></div>
     </div>
     <?php } else { ?>
     <div class="antidoteDetail">
@@ -442,7 +472,9 @@ $lang_name = $language->language; ?>
         </div>
       </div>
       <?php } ?>
-      <div><small>Last updated: <?php echo gmdate("m-d-Y", $changedDate); ?></small></div>
+      <div><small>Last updated: <?php echo gmdate("d-m-Y", $changedDate); ?></small></div>
+      <br/>
+      <div><small>©CAPQ, CIUSSS de la Capitale-Nationale, 2017. The data contained in this document may be quoted, provided the source is mentioned. Any use for commercial or advertising purposes is however strictly prohibited.</small></div>
     </div>
     <?php } ?>
   </div>
