@@ -1,9 +1,9 @@
 diff --git a/src/Plugin/resource/Antidotes__1_0.php b/src/Plugin/resource/Antidotes__1_0.php
 new file mode 100755
-index 0000000..fc64905
+index 0000000..66d346f
 --- /dev/null
 +++ b/src/Plugin/resource/Antidotes__1_0.php
-@@ -0,0 +1,131 @@
+@@ -0,0 +1,136 @@
 +<?php
 +
 +/**
@@ -45,6 +45,11 @@ index 0000000..fc64905
 +   */
 +  protected function publicFields() {
 +    $public_fields = parent::publicFields();
++
++    // Last updated
++    $public_fields['last_updated'] = array(
++      'property' => 'changed',
++    );
 +
 +    // Language
 +    $public_fields['language'] = array(
