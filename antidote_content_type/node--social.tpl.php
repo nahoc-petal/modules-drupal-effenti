@@ -24,7 +24,7 @@ if(isset($_GET['lang'])) {
         $('#Footer').hide();
 
         $('#Header').find('.Container').prepend(
-          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes" >Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a class="activeLink" href="liens-et-coordonnees"><?php if($lang_name == 'fr') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
+          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a class="activeLink" href="liens-et-coordonnees?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>"><?php if($lang_name == 'fr') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
         );
 
         $('#Header').after(
@@ -47,6 +47,12 @@ if(isset($_GET['lang'])) {
       img {
         max-width: 100%;
         height: auto;
+      }
+
+      .bann-gouv img:first-child {
+        height: 111px;
+        width: 211px;
+        max-width: 211px;
       }
 
       .MenuPrincipal {

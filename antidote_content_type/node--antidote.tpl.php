@@ -18,7 +18,21 @@ if(isset($_GET['lang'])) {
       jQuery(document).ready(function ($) {
         $('.drowndownContent').hide();
         $('.dropdownToggle').click(function (event) {
-          $(this).find('.drowndownContent').slideToggle();
+          $(this).next('.drowndownContent').slideToggle();
+        });
+
+        var allOpened = false;
+
+        $('.toggleAll').click(function(event) {
+          if(allOpened) {
+            $('.toggleAll').html('<?php if($lang_name == 'fr') { ?>Ouvrir tout<?php } else { ?>Open all<?php } ?>');
+            $('.drowndownContent').slideUp();
+            allOpened = false
+          } else {
+            $('.toggleAll').html('<?php if($lang_name == 'fr') { ?>Fermer tout<?php } else { ?>Close all<?php } ?>');
+            $('.drowndownContent').slideDown();
+            allOpened = true;
+          }
         });
 
         $(".searchInput").keyup(function () {
@@ -41,7 +55,7 @@ if(isset($_GET['lang'])) {
         $('#Footer').hide();
 
         $('#Header').find('.Container').prepend(
-        '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>" class="activeLink">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>"><?php if($lang_name == 'fr') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
+          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>" class="activeLink">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>"><?php if($lang_name == 'fr') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
         );
 
         $('#Header').after(
@@ -102,11 +116,15 @@ if(isset($_GET['lang'])) {
         background-position: center;
         background-repeat: no-repeat;
         position: relative;
-        <?php if($lang_name == 'fr') { ?>
-        background-image: url('https://i.imgur.com/xvipll6.png');
-        <?php } else { ?>
-        background-image: url('https://i.imgur.com/D9Kfzbp.png');
-        <?php } ?>
+        <?php if($lang_name=='fr') {
+          ?>background-image: url('https://i.imgur.com/xvipll6.png');
+          <?php
+        }
+        else {
+          ?>background-image: url('https://i.imgur.com/D9Kfzbp.png');
+          <?php
+        }
+        ?>
       }
 
       #Head #Header .Container {
@@ -124,13 +142,17 @@ if(isset($_GET['lang'])) {
 
       .dropdownToggle {
         background: white;
+        padding: 10px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .dropdownToggleWrapper {
+        background: white;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
         border: 1px solid #eee;
         border-radius: 2px;
         margin-bottom: 10px;
-        padding: 10px;
-        padding-left: 16px;
-        padding-right: 16px;
       }
 
       .no-margin-top {
@@ -148,6 +170,8 @@ if(isset($_GET['lang'])) {
 
       .drowndownContent {
         margin-top: 10px;
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
       .row-1 .views-field {
@@ -236,7 +260,19 @@ if(isset($_GET['lang'])) {
         border: 1px solid #bbb;
       }
 
-      #Footer {display:none;}
+      .toggleAll {
+        float: right;
+        font-size: 14px;
+        padding: 4px 8px;
+      }
+
+      .toggleAll:hover {
+        cursor: pointer!important;
+      }
+
+      #Footer {
+        display: none;
+      }
 
       .languageSwitcher {
         position: absolute;
@@ -245,7 +281,13 @@ if(isset($_GET['lang'])) {
       }
     </style>
 
-    <div class="languageSwitcher"><?php if($lang_name == 'fr') { ?><a href="antidotes?lang=en">English</a><?php } else { ?><a href="antidotes?lang=fr">Français</a><?php } ?></div>
+    <div class="languageSwitcher">
+      <?php if($lang_name == 'fr') { ?>
+      <a href="antidotes?lang=en">English</a>
+      <?php } else { ?>
+      <a href="antidotes?lang=fr">Français</a>
+      <?php } ?>
+    </div>
     <aside class="asideAntidotes">
       <?php if($lang_name == 'fr') { ?>
       <h3>Liste des antidotes en toxicologie d'urgence</h3>
@@ -267,27 +309,49 @@ if(isset($_GET['lang'])) {
           $nodes = node_load_multiple($nids);
 
           foreach($nodes as $key => $value) {
+            if($value->nid != 4743) {
             ?>
         <li>
-
-          <a class="asideLink <?php if ($node = menu_get_object()) { if($node->nid == $value->nid) { $changedDate = $value->changed; echo 'activeLink'; } } ?>" href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>">
+          <a class="asideLink <?php if ($node = menu_get_object()) { if($node->nid == $value->nid) { $changedDate = $value->changed; echo 'activeLink'; } } ?>"
+            href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>">
             <?php print $value->title; ?>
           </a>
         </li>
-        <?php } ?>
+        <?php } } ?>
+        <?php if($node->nid != 4743) {$showLastUpdated = "block";} else { $showLastUpdated = "none";} ?>
       </ul>
     </aside>
     <!-- template FR -->
     <?php if($lang_name == 'fr') { ?>
     <div class="antidoteDetail">
+      <?php if($content['field_avis_au_lecteur'][0] != null) { ?>
+      <h2 class="no-margin-top">Avis au lecteur</h2>
+      <?php print render($content['field_avis_au_lecteur'][0]); ?>
+      <?php } ?>
+
+      <?php if($content['field_abreviations_et_acronymes'][0] != null) { ?>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Abréviations et acronymes</h2>
+        </div>
+        <div class="drowndownContent">
+          <?php print render($content['field_abreviations_et_acronymes'][0]); ?>
+        </div>
+
+      </div>
+      <?php } ?>
+
       <?php if($content['field_points_cles'][0] != null) { ?>
-      <h2 class="no-margin-top">Points clés</h2>
+      <h2 class="no-margin-top">Points clés <button class="activeLink toggleAll">Ouvrir tout</button></h2>
+
       <?php print render($content['field_points_cles'][0]); ?>
       <?php } ?>
 
       <?php if($content['field_synonymes_et_autres_appell'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Synonymes et autres appellations</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Synonymes et autres appellations</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_synonymes_et_autres_appell'][0]); ?>
         </div>
@@ -295,17 +359,22 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_indications'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Indications</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Indications</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_indications'][0]); ?>
         </div>
       </div>
       <?php } ?>
 
+
       <?php if($content['field_posologie'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Posologie</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Posologie</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_posologie'][0]); ?>
         </div>
@@ -313,8 +382,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_effets_indesirables'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Effets indésirables</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Effets indésirables</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_effets_indesirables'][0]); ?>
         </div>
@@ -322,8 +393,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_monitoring'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Monitoring</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Monitoring</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_monitoring'][0]); ?>
         </div>
@@ -331,8 +404,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_fin_du_traitement'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Fin du traitement</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Fin du traitement</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_fin_du_traitement'][0]); ?>
         </div>
@@ -340,8 +415,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_particularites_reliees'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Particularités reliées à l’administration</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Particularités reliées à l’administration</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_particularites_reliees'][0]); ?>
         </div>
@@ -349,8 +426,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_produits_disponibles'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Produits disponibles</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Produits disponibles</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_produits_disponibles'][0]); ?>
         </div>
@@ -358,35 +437,65 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_stockage_recommande'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Stockage recommandé</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Stockage recommandé</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_stockage_recommande'][0]); ?>
         </div>
       </div>
       <?php } ?>
       <?php if($content['field_references'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Références</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Références</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_references'][0]); ?>
         </div>
       </div>
       <?php } ?>
-      <div><small>Dernière mise à jour: <?php echo gmdate("d-m-Y", $changedDate); ?></small></div>
       <br/>
-      <div><small>©CAPQ, CIUSSS de la Capitale-Nationale, 2017. Les données contenues dans ce document peuvent être citées, à condition d’en mentionner la source. Toute utilisation à des fins commerciales ou publicitaires est cependant strictement interdite.</small></div>
+      <?php if($content['field_copyright'][0] != null) { ?>
+      <div>
+        <?php print render($content['field_copyright'][0]); ?>
+      </div>
+      <?php } ?>
+      <div style="display: <?php echo $showLastUpdated;?>;">
+        <small>Dernière mise à jour:
+          <?php echo gmdate("d-m-Y", $changedDate); ?>
+        </small>
+      </div>
     </div>
     <?php } else { ?>
     <div class="antidoteDetail">
+      <?php if($content['field_avis_au_lecteur'][0] != null) { ?>
+      <h2 class="no-margin-top">Advice to the reader</h2>
+      <?php print render($content['field_avis_au_lecteur'][0]); ?>
+      <?php } ?>
+
+      <?php if($content['field_abreviations_et_acronymes'][0] != null) { ?>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Abbreviations and acronyms</h2>
+        </div>
+        <div class="drowndownContent">
+          <?php print render($content['field_abreviations_et_acronymes'][0]); ?>
+        </div>
+      </div>
+      <?php } ?>
+
       <?php if($content['field_points_cles'][0] != null) { ?>
-      <h2 class="no-margin-top">Key points</h2>
+      <h2 class="no-margin-top">Key points <button class="activeLink toggleAll">Ouvrir tout</button></h2>
       <?php print render($content['field_points_cles'][0]); ?>
       <?php } ?>
 
       <?php if($content['field_synonymes_et_autres_appell'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Synonyms and other terms</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Synonyms and other terms</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_synonymes_et_autres_appell'][0]); ?>
         </div>
@@ -394,8 +503,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_indications'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Indications</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Indications</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_indications'][0]); ?>
         </div>
@@ -403,8 +514,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_posologie'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Dosage</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Dosage</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_posologie'][0]); ?>
         </div>
@@ -412,8 +525,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_effets_indesirables'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Adverse effects</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Adverse effects</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_effets_indesirables'][0]); ?>
         </div>
@@ -421,8 +536,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_monitoring'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Monitoring</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Monitoring</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_monitoring'][0]); ?>
         </div>
@@ -430,8 +547,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_fin_du_traitement'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ End of treatment</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ End of treatment</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_fin_du_traitement'][0]); ?>
         </div>
@@ -439,8 +558,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_particularites_reliees'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Special Notes on Administration</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Special Notes on Administration</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_particularites_reliees'][0]); ?>
         </div>
@@ -448,8 +569,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_produits_disponibles'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Available products</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Available products</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_produits_disponibles'][0]); ?>
         </div>
@@ -457,24 +580,36 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_stockage_recommande'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ Amount required to treat a person weighting 70kg during 24 hours</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ Amount required to treat a person weighting 70kg during 24 hours</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_stockage_recommande'][0]); ?>
         </div>
       </div>
       <?php } ?>
       <?php if($content['field_references'][0] != null) { ?>
-      <div class="dropdownToggle">
-        <h2>+ References</h2>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ References</h2>
+        </div>
         <div class="drowndownContent">
           <?php print render($content['field_references'][0]); ?>
         </div>
       </div>
       <?php } ?>
-      <div><small>Last updated: <?php echo gmdate("d-m-Y", $changedDate); ?></small></div>
       <br/>
-      <div><small>©CAPQ, CIUSSS de la Capitale-Nationale, 2017. The data contained in this document may be quoted, provided the source is mentioned. Any use for commercial or advertising purposes is however strictly prohibited.</small></div>
+      <?php if($content['field_copyright'][0] != null) { ?>
+      <div>
+        <?php print render($content['field_copyright'][0]); ?>
+      </div>
+      <?php } ?>
+      <div style="display: <?php echo $showLastUpdated;?>;">
+        <small>Last updated:
+          <?php echo gmdate("d-m-Y", $changedDate); ?>
+        </small>
+      </div>
     </div>
     <?php } ?>
   </div>

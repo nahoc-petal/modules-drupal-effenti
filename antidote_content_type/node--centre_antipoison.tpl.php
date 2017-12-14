@@ -43,6 +43,12 @@ if(isset($_GET['lang'])) {
         height: auto;
       }
 
+      .bann-gouv img:first-child {
+        height: 111px;
+        width: 211px;
+        max-width: 211px;
+      }
+
       .activeLink {
         background: #333!important;
         color: white!important;
