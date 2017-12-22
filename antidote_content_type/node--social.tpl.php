@@ -218,6 +218,12 @@ if(isset($_GET['lang'])) {
         top: -44px;
         right: 0;
       }
+
+      #search-api-page-search-form-search {
+        position: absolute;
+        top: 196px;
+        right: 80px;
+      }
     </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
