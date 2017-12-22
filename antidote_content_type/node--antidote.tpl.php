@@ -342,7 +342,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_points_cles'][0] != null) { ?>
-      <h2 class="no-margin-top">Points clés <button class="activeLink toggleAll">Ouvrir tout</button></h2>
+      <h2 class="no-margin-top">Points clés <button class="activeLink toggleAll"><?php if($lang_name == 'fr') { ?>Ouvrir tout
+      <?php } else {  ?>
+      Open all
+      <?php } ?></button></h2>
 
       <?php print render($content['field_points_cles'][0]); ?>
       <?php } ?>
