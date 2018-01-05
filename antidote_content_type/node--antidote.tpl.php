@@ -279,13 +279,19 @@ if(isset($_GET['lang'])) {
         top: -44px;
         right: 0;
       }
+
+      #search-api-page-search-form-search {
+        position: absolute;
+        top: 196px;
+        right: 80px;
+      }
     </style>
 
     <div class="languageSwitcher">
       <?php if($lang_name == 'fr') { ?>
-      <a href="antidotes?lang=en">English</a>
+      <a href="/antidotes?lang=en">English</a>
       <?php } else { ?>
-      <a href="antidotes?lang=fr">Français</a>
+      <a href="/antidotes?lang=fr">Français</a>
       <?php } ?>
     </div>
     <aside class="asideAntidotes">
@@ -313,7 +319,7 @@ if(isset($_GET['lang'])) {
             ?>
         <li>
           <a class="asideLink <?php if ($node = menu_get_object()) { if($node->nid == $value->nid) { $changedDate = $value->changed; echo 'activeLink'; } } ?>"
-            href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>">
+            href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>?lang=<?php if($lang_name == 'fr') { echo "fr"; } else { echo "en"; } ?>">
             <?php print $value->title; ?>
           </a>
         </li>
@@ -342,10 +348,7 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_points_cles'][0] != null) { ?>
-      <h2 class="no-margin-top">Points clés <button class="activeLink toggleAll"><?php if($lang_name == 'fr') { ?>Ouvrir tout
-      <?php } else {  ?>
-      Open all
-      <?php } ?></button></h2>
+      <h2 class="no-margin-top">Points clés <button class="activeLink toggleAll">Ouvrir tout</button></h2>
 
       <?php print render($content['field_points_cles'][0]); ?>
       <?php } ?>
@@ -490,7 +493,7 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_points_cles'][0] != null) { ?>
-      <h2 class="no-margin-top">Key points <button class="activeLink toggleAll">Ouvrir tout</button></h2>
+      <h2 class="no-margin-top">Key points <button class="activeLink toggleAll">Open all</button></h2>
       <?php print render($content['field_points_cles'][0]); ?>
       <?php } ?>
 

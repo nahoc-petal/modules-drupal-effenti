@@ -224,6 +224,12 @@ if(isset($_GET['lang'])) {
         top: -44px;
         right: 0;
       }
+
+      #search-api-page-search-form-search {
+        position: absolute;
+        top: 196px;
+        right: 80px;
+      }
     </style>
 
     <!-- template EN -->
@@ -250,7 +256,7 @@ if(isset($_GET['lang'])) {
           </h2>
           <img class="image-centre" src="<?php print($value->field_image_url["und"][0]['value']); ?>" alt="Centre image" />
           <div class="centre-links">
-            <a class="btn-phone" href="tel:<?php print($value->field_telephone["und"][0]['value']); ?>">Call centre (<?php print '('.substr($value->field_telephone["und"][0]['value'], 0, 3).') '.substr($value->field_telephone["und"][0]['value'], 3, 3).'-'.substr($value->field_telephone["und"][0]['value'],6);?>)</a>&nbsp;&nbsp;
+            <a class="btn-phone" href="tel:<?php print($value->field_telephone["und"][0]['value']); ?>">Call centre (<?php print substr($value->field_telephone["und"][0]['value'], 0, 1).'-'.substr($value->field_telephone["und"][0]['value'], 1, 3).'-'.substr($value->field_telephone["und"][0]['value'], 4, 3).'-'.substr($value->field_telephone["und"][0]['value'],7);?>)</a>&nbsp;&nbsp;
             <a class="btn-website" href="<?php print($value->field_site_web["und"][0]['value']); ?>">Visit website</a>
           </div>
         </li>
