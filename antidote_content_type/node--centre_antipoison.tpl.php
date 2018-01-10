@@ -230,6 +230,10 @@ if(isset($_GET['lang'])) {
         top: 196px;
         right: 80px;
       }
+
+      #Wrapper {
+        z-index: -1!important;
+      }
     </style>
 
     <!-- template EN -->

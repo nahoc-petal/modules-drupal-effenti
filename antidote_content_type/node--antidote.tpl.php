@@ -117,11 +117,11 @@ if(isset($_GET['lang'])) {
         background-repeat: no-repeat;
         position: relative;
         <?php if($lang_name=='fr') {
-          ?>background-image: url('https://i.imgur.com/xvipll6.png');
+          ?>background-image: url('https://i.imgur.com/sJJJ0rn.png');
           <?php
         }
         else {
-          ?>background-image: url('https://i.imgur.com/D9Kfzbp.png');
+          ?>background-image: url('https://i.imgur.com/HUSILqh.png');
           <?php
         }
         ?>
@@ -285,6 +285,10 @@ if(isset($_GET['lang'])) {
         top: 196px;
         right: 80px;
       }
+
+      #Wrapper {
+        z-index: -1!important;
+      }
     </style>
 
     <div class="languageSwitcher">
@@ -315,7 +319,7 @@ if(isset($_GET['lang'])) {
           $nodes = node_load_multiple($nids);
 
           foreach($nodes as $key => $value) {
-            if($value->nid != 4743) {
+            if($value->nid != 4743 || $value->nid != 4986) {
             ?>
         <li>
           <a class="asideLink <?php if ($node = menu_get_object()) { if($node->nid == $value->nid) { $changedDate = $value->changed; echo 'activeLink'; } } ?>"
@@ -335,6 +339,17 @@ if(isset($_GET['lang'])) {
       <?php print render($content['field_avis_au_lecteur'][0]); ?>
       <?php } ?>
 
+      <?php if($content['field_about_us'][0] != null) { ?>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ À propos de nous</h2>
+        </div>
+        <div class="drowndownContent">
+          <?php print render($content['field_about_us'][0]); ?>
+        </div>
+      </div>
+      <?php } ?>
+
       <?php if($content['field_abreviations_et_acronymes'][0] != null) { ?>
       <div class="dropdownToggleWrapper">
         <div class="dropdownToggle">
@@ -343,7 +358,6 @@ if(isset($_GET['lang'])) {
         <div class="drowndownContent">
           <?php print render($content['field_abreviations_et_acronymes'][0]); ?>
         </div>
-
       </div>
       <?php } ?>
 
@@ -401,7 +415,7 @@ if(isset($_GET['lang'])) {
       <?php if($content['field_monitoring'][0] != null) { ?>
       <div class="dropdownToggleWrapper">
         <div class="dropdownToggle">
-          <h2>+ Monitoring</h2>
+          <h2>+ Surveillance clinique</h2>
         </div>
         <div class="drowndownContent">
           <?php print render($content['field_monitoring'][0]); ?>
@@ -479,6 +493,17 @@ if(isset($_GET['lang'])) {
       <?php if($content['field_avis_au_lecteur'][0] != null) { ?>
       <h2 class="no-margin-top">Advice to the reader</h2>
       <?php print render($content['field_avis_au_lecteur'][0]); ?>
+      <?php } ?>
+
+      <?php if($content['field_about_us'][0] != null) { ?>
+      <div class="dropdownToggleWrapper">
+        <div class="dropdownToggle">
+          <h2>+ About us</h2>
+        </div>
+        <div class="drowndownContent">
+          <?php print render($content['field_about_us'][0]); ?>
+        </div>
+      </div>
       <?php } ?>
 
       <?php if($content['field_abreviations_et_acronymes'][0] != null) { ?>
