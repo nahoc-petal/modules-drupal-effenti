@@ -226,7 +226,7 @@ if(isset($_GET['lang'])) {
       }
 
       #Wrapper {
-        z-index: -1!important;
+        z-index: 0!important;
       }
     </style>
 
