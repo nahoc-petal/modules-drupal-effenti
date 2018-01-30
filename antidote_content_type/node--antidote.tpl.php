@@ -23,16 +23,27 @@ if(isset($_GET['lang'])) {
 
         var allOpened = false;
 
-        $('.toggleAll').click(function(event) {
-          if(allOpened) {
-            $('.toggleAll').html('<?php if($lang_name == 'fr') { ?>Ouvrir tout<?php } else { ?>Open all<?php } ?>');
+        $('.toggleAll').click(function (event) {
+          if (allOpened) {
+            $('.toggleAll').html('<?php if($lang_name == '
+              fr ') { ?>Ouvrir tout<?php } else { ?>Open all<?php } ?>');
             $('.drowndownContent').slideUp();
-            allOpened = false
+            allOpened = false;
           } else {
-            $('.toggleAll').html('<?php if($lang_name == 'fr') { ?>Fermer tout<?php } else { ?>Close all<?php } ?>');
+            $('.toggleAll').html('<?php if($lang_name == '
+              fr ') { ?>Fermer tout<?php } else { ?>Close all<?php } ?>');
             $('.drowndownContent').slideDown();
             allOpened = true;
           }
+        });
+
+        $('.print').click(function (event) {
+          console.log('printing...');
+          $('.toggleAll').html('<?php if($lang_name == '
+            fr ') { ?>Fermer tout<?php } else { ?>Close all<?php } ?>');
+          $('.drowndownContent').show();
+          allOpened = true;
+          window.print();
         });
 
         $(".searchInput").keyup(function () {
@@ -55,7 +66,11 @@ if(isset($_GET['lang'])) {
         $('#Footer').hide();
 
         $('#Header').find('.Container').prepend(
-          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>" class="activeLink">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees?lang=<?php if($lang_name == 'fr') { ?>fr<?php } else { ?>en<?php } ?>"><?php if($lang_name == 'fr') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
+          '<div class="block block-menu-block MenuPrincipal contextual-links-region"><div class="content"><div class="menu-block-wrapper menu-block-2 menu-name-main-menu parent-mlid-0 menu-level-1"><ul class="menu"><li class="first leaf has-children menu-mlid-537"><a href="/antidotes?lang=<?php if($lang_name == '
+          fr ') { ?>fr<?php } else { ?>en<?php } ?>" class="activeLink">Antidotes</a></li><li class="leaf has-children menu-mlid-538"><a href="/centres?lang=<?php if($lang_name == '
+          fr ') { ?>fr<?php } else { ?>en<?php } ?>">Centres</a></li><li class="last leaf has-children menu-mlid-539"><a href="liens-et-coordonnees?lang=<?php if($lang_name == '
+          fr ') { ?>fr<?php } else { ?>en<?php } ?>"><?php if($lang_name == '
+          fr ') { ?>Contactez-nous<?php } else { ?>Contact Us<?php } ?></a></li></ul></div></div></div></div>'
         );
 
         $('#Header').after(
@@ -90,7 +105,7 @@ if(isset($_GET['lang'])) {
       }
 
       #Head #Header .Container .MenuPrincipal ul li a {
-        font-size: 16px!important;
+        font-size: 16px !important;
         padding: 16px 11px 15px;
       }
 
@@ -128,7 +143,7 @@ if(isset($_GET['lang'])) {
       }
 
       #Head #Header .Container {
-        height: 49px!important;
+        height: 49px !important;
       }
 
       .not-front #Footer .footer-bg {
@@ -136,7 +151,7 @@ if(isset($_GET['lang'])) {
       }
 
       .menu li {
-        width: 320px!important;
+        width: 320px !important;
         text-align: center;
       }
 
@@ -156,7 +171,7 @@ if(isset($_GET['lang'])) {
       }
 
       .no-margin-top {
-        margin-top: 0!important;
+        margin-top: 0 !important;
       }
 
       .dropdownToggle:hover {
@@ -165,7 +180,7 @@ if(isset($_GET['lang'])) {
       }
 
       .dropdownToggle h2 {
-        margin: 0!important;
+        margin: 0 !important;
       }
 
       .drowndownContent {
@@ -175,19 +190,19 @@ if(isset($_GET['lang'])) {
       }
 
       .row-1 .views-field {
-        text-align: center!important;
+        text-align: center !important;
       }
 
       .content h1 {
-        margin-left: 30%!important;
+        margin-left: 30% !important;
         padding-bottom: 4px;
         border-bottom: 4px solid #333;
       }
 
       .activeLink {
-        background: #333!important;
-        color: white!important;
-        border-top: 0!important;
+        background: #333 !important;
+        color: white !important;
+        border-top: 0 !important;
       }
 
       .asideAntidotes {
@@ -199,35 +214,35 @@ if(isset($_GET['lang'])) {
         padding: 8px;
         float: left;
         width: 25%;
-        box-sizing: content-box!important;
-        margin: 0!important;
-        padding: 0!important;
+        box-sizing: content-box !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       .antidoteDetail {
         float: right;
         width: 70%;
-        box-sizing: content-box!important;
+        box-sizing: content-box !important;
       }
 
       .asideAntidotes h3 {
-        margin: 0!important;
-        padding-top: 10px!important;
-        padding-bottom: 10px!important;
-        padding-left: 14px!important;
-        padding-right: 14px!important;
-        font-size: 16px!important;
+        margin: 0 !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        font-size: 16px !important;
       }
 
       .asideAntidotes ul {
-        margin: 0!important;
+        margin: 0 !important;
         padding-bottom: 8px;
       }
 
       .asideAntidotes ul li {
-        margin: 0!important;
-        padding: 0!important;
-        list-style: none!important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
         position: relative;
       }
 
@@ -239,13 +254,13 @@ if(isset($_GET['lang'])) {
 
       .asideLink {
         text-decoration: none;
-        padding-top: 4px!important;
-        padding-bottom: 4px!important;
-        padding-left: 14px!important;
-        padding-right: 14px!important;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
         display: inline-block;
         width: 100%;
-        box-sizing: border-box!important;
+        box-sizing: border-box !important;
       }
 
       .searchInput {
@@ -260,14 +275,25 @@ if(isset($_GET['lang'])) {
         border: 1px solid #bbb;
       }
 
+      .print {
+        float: right;
+        margin-right: 8px;
+        font-size: 14px;
+        padding: 4px 8px;
+      }
+
       .toggleAll {
         float: right;
         font-size: 14px;
         padding: 4px 8px;
       }
 
+      .print:hover {
+        cursor: pointer !important;
+      }
+
       .toggleAll:hover {
-        cursor: pointer!important;
+        cursor: pointer !important;
       }
 
       #Footer {
@@ -287,7 +313,46 @@ if(isset($_GET['lang'])) {
       }
 
       #Wrapper {
-        z-index: 0!important;
+        z-index: 0 !important;
+      }
+
+      @media print {
+        .wrap-bann-gouv {
+          display: none;
+        }
+        #toolbar {
+          display: none;
+        }
+        noindex {
+          display: none;
+        }
+        .asideAntidotes {
+          display: none;
+        }
+        .contextual-links-trigger {
+          display: none;
+        }
+        .antidoteDetail {
+          width: 100%;
+        }
+        .content h1 {
+          margin-left: 0 !important;
+        }
+        .print {
+          display: none;
+        }
+        .toggleAll {
+          display: none;
+        }
+        .si-toggle-container {
+          display: none !important;
+        }
+        .languageSwitcher {
+          display: none !important;
+        }
+        .wrap-footer-gouv {
+          display: none;
+        }
       }
     </style>
 
@@ -323,7 +388,8 @@ if(isset($_GET['lang'])) {
             ?>
         <li>
           <a class="asideLink <?php if ($node = menu_get_object()) { if($node->nid == $value->nid) { $changedDate = $value->changed; echo 'activeLink'; } } ?>"
-            href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>?lang=<?php if($lang_name == 'fr') { echo "fr"; } else { echo "en"; } ?>">
+            href="<?php echo url(drupal_get_path_alias('node/' . $value->nid)); ?>?lang=<?php if($lang_name == 'fr') { echo "
+            fr "; } else { echo "en "; } ?>">
             <?php print $value->title; ?>
           </a>
         </li>
@@ -362,7 +428,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_points_cles'][0] != null) { ?>
-      <h2 class="no-margin-top">Points clés <button class="activeLink toggleAll">Ouvrir tout</button></h2>
+      <h2 class="no-margin-top">Points clés
+        <button class="activeLink toggleAll">Ouvrir tout</button>
+        <button class="activeLink print">Imprimer</button>
+      </h2>
 
       <?php print render($content['field_points_cles'][0]); ?>
       <?php } ?>
@@ -397,6 +466,82 @@ if(isset($_GET['lang'])) {
         </div>
         <div class="drowndownContent">
           <?php print render($content['field_posologie'][0]); ?>
+          <?php if($content['field_pediatrique'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Dose pédiatrique</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_pediatrique'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_adulte'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Dose adulte</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_adulte'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_renale'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Insuffisance rénale</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_renale'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_hepatique'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Insuffisance hépatique</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_hepatique'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_hemodialyse'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Patient hémodialysé</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_hemodialyse'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_grossesse'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Grossesse</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_grossesse'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_obese'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Patient obèse ou avec un surplus de poids</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_obese'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
         </div>
       </div>
       <?php } ?>
@@ -518,7 +663,10 @@ if(isset($_GET['lang'])) {
       <?php } ?>
 
       <?php if($content['field_points_cles'][0] != null) { ?>
-      <h2 class="no-margin-top">Key points <button class="activeLink toggleAll">Open all</button></h2>
+      <h2 class="no-margin-top">Key points
+        <button class="activeLink toggleAll">Open all</button>&nbsp;
+        <button class="activeLink print">Print</button>
+      </h2>
       <?php print render($content['field_points_cles'][0]); ?>
       <?php } ?>
 
@@ -551,6 +699,82 @@ if(isset($_GET['lang'])) {
         </div>
         <div class="drowndownContent">
           <?php print render($content['field_posologie'][0]); ?>
+          <?php if($content['field_pediatrique'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Pediatric Dose</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_pediatrique'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_adulte'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Adult Dose</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_adulte'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_renale'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Renal Impairment</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_renale'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_hepatique'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Hepatic Impairment</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_hepatique'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_hemodialyse'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Hemodialysis Patient</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_hemodialyse'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_grossesse'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Pregnancy</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_grossesse'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
+
+          <?php if($content['field_obese'][0] != null) { ?>
+          <div class="dropdownToggleWrapper">
+            <div class="dropdownToggle">
+              <h2>+ Obese or Overweight Patient</h2>
+            </div>
+            <div class="drowndownContent">
+              <?php print render($content['field_obese'][0]); ?>
+            </div>
+          </div>
+          <?php } ?>
         </div>
       </div>
       <?php } ?>

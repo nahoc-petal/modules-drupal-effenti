@@ -1,9 +1,9 @@
 diff --git a/src/Plugin/resource/Antidotes__1_0.php b/src/Plugin/resource/Antidotes__1_0.php
 new file mode 100755
-index 0000000..66d346f
+index 0000000..c4cfae0
 --- /dev/null
 +++ b/src/Plugin/resource/Antidotes__1_0.php
-@@ -0,0 +1,136 @@
+@@ -0,0 +1,171 @@
 +<?php
 +
 +/**
@@ -134,6 +134,41 @@ index 0000000..66d346f
 +    // Références
 +    $public_fields['references'] = array(
 +      'property' => 'field_references',
++    );
++
++    // Dose pédiatrique
++    $public_fields['field_pediatrique'] = array(
++      'property' => 'field_pediatrique',
++    );
++
++    // Dose adulte
++    $public_fields['field_adulte'] = array(
++      'property' => 'field_adulte',
++    );
++
++    // Insuffisance rénale
++    $public_fields['field_renale'] = array(
++      'property' => 'field_renale',
++    );
++
++     // Insuffisance hépatique
++    $public_fields['field_hepatique'] = array(
++      'property' => 'field_hepatique',
++    );
++
++    // Patient hémodialysé
++    $public_fields['field_hemodialyse'] = array(
++      'property' => 'field_hemodialyse',
++    );
++
++    // Grossesse
++    $public_fields['field_grossesse'] = array(
++      'property' => 'field_grossesse',
++    );
++
++    // Patient obèse ou avec un surplus de poids
++    $public_fields['field_obese'] = array(
++      'property' => 'field_obese',
 +    );
 +
 +    return $public_fields;
