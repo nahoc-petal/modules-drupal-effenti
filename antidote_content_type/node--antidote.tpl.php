@@ -25,13 +25,11 @@ if(isset($_GET['lang'])) {
 
         $('.toggleAll').click(function (event) {
           if (allOpened) {
-            $('.toggleAll').html('<?php if($lang_name == '
-              fr ') { ?>Ouvrir tout<?php } else { ?>Open all<?php } ?>');
+            $('.toggleAll').html('<?php if($lang_name == 'fr') { ?>Ouvrir tout<?php } else { ?>Open all<?php } ?>');
             $('.drowndownContent').slideUp();
             allOpened = false;
           } else {
-            $('.toggleAll').html('<?php if($lang_name == '
-              fr ') { ?>Fermer tout<?php } else { ?>Close all<?php } ?>');
+            $('.toggleAll').html('<?php if($lang_name == 'fr') { ?>Fermer tout<?php } else { ?>Close all<?php } ?>');
             $('.drowndownContent').slideDown();
             allOpened = true;
           }
@@ -458,8 +456,6 @@ if(isset($_GET['lang'])) {
       </div>
       <?php } ?>
 
-
-      <?php if($content['field_posologie'][0] != null) { ?>
       <div class="dropdownToggleWrapper">
         <div class="dropdownToggle">
           <h2>+ Posologie</h2>
@@ -544,7 +540,6 @@ if(isset($_GET['lang'])) {
           <?php } ?>
         </div>
       </div>
-      <?php } ?>
 
       <?php if($content['field_effets_indesirables'][0] != null) { ?>
       <div class="dropdownToggleWrapper">
@@ -692,7 +687,6 @@ if(isset($_GET['lang'])) {
       </div>
       <?php } ?>
 
-      <?php if($content['field_posologie'][0] != null) { ?>
       <div class="dropdownToggleWrapper">
         <div class="dropdownToggle">
           <h2>+ Dosage</h2>
@@ -777,7 +771,6 @@ if(isset($_GET['lang'])) {
           <?php } ?>
         </div>
       </div>
-      <?php } ?>
 
       <?php if($content['field_effets_indesirables'][0] != null) { ?>
       <div class="dropdownToggleWrapper">
