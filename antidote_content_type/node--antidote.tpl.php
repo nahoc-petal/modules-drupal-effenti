@@ -830,7 +830,7 @@ if(isset($_GET['lang'])) {
       <?php if($content['field_stockage_recommande'][0] != null) { ?>
       <div class="dropdownToggleWrapper">
         <div class="dropdownToggle">
-          <h2>+ Amount required to treat a person weighting 70kg during 24 hours</h2>
+          <h2>+ Amount required to treat a person weighing 70kg during 24 hours</h2>
         </div>
         <div class="drowndownContent">
           <?php print render($content['field_stockage_recommande'][0]); ?>
